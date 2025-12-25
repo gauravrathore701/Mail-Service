@@ -1,0 +1,12 @@
+[package]
+name = "mail_service"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.7"  # Check docs.rs for latest version
+tokio = { version = "1", features = ["full"] }
+tower = "0.5"  # Optional but useful for middleware/testing
+serde = { version = "1.0", features = ["derive"] }  # For JSON handling
+mongodb = "3.4.1"
+dotenv = "0.15.0"
