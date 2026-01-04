@@ -10,7 +10,7 @@ impl DatabaseService {
     pub async fn new() -> Self {
         let uri = std::env::var("MONGODB_URI").expect("MONGODB_URI must be set");
         let client = Client::with_uri_str(uri).await.expect("Failed to connect to MongoDB");
-        let db = client.database("dev_users");
+        let db = client.database("notification_service");
         let subscriber_collection = db.collection("subscribers");
         
         Self { subscriber_collection }
