@@ -1,0 +1,20 @@
+[Unit]
+Description=Rust Mail Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=gaurav
+WorkingDirectory=/home/gaurav/Projects/Mail-Service
+ExecStart=/home/gaurav/Projects/Mail-Service/target/release/mail_service
+Restart=always
+RestartSec=10
+Environment=RUST_LOG=info
+TimeoutStartSec=60
+# Add your env vars if needed:
+Environment=MONGODB_URI=mongodb://localhost:27017
+
+[Install]
+WantedBy=multi-user.target
+
